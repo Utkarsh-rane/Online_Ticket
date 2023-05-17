@@ -29,7 +29,6 @@ CREATE TABLE Bookings (
   UserID INT NOT NULL,
   TicketID INT NOT NULL,
   BookingDate DATE NOT NULL,
-  Status ENUM('Confirmed', 'Canceled') NOT NULL,
   FOREIGN KEY (UserID) REFERENCES Users(UserID),
   FOREIGN KEY (TicketID) REFERENCES Tickets(TicketID)
 );
@@ -40,7 +39,6 @@ CREATE TABLE Payments (
   PaymentMethod VARCHAR(50) NOT NULL,
   Amount DECIMAL(8, 2) NOT NULL,
   TransactionID VARCHAR(100) NOT NULL,
-  Status ENUM('Completed', 'Failed') NOT NULL,
   FOREIGN KEY (BookingID) REFERENCES Bookings(BookingID)
 );
 
